@@ -13,16 +13,16 @@ y separamos los valores de nuestra estructura con una coma.
 Por ejemplo, en la siguiente instrucción estamos creando una lista llamada a con los valores 1, 3, 2, 5, 2.
 """
 
-def ejemplo1():
-    a = [1, 3, 2, 5, 2]
-    print(a)
+# def ejemplo1():
+#     a = [1, 3, 2, 5, 2]
+#     print(a)
 
-ejemplo1()
+# ejemplo1()
 
 #Las listas no necesariamente tienen que ser de números, también pueden ser de texto:
-def ejemplo2():
-    nombres = ["María", "Juan","Andrés"]
-    print(nombres)
+# def ejemplo2():
+#     nombres = ["María", "Juan","Andrés"]
+#     print(nombres)
 
 #ejemplo2()
 
@@ -33,19 +33,19 @@ def ejemplo2():
 #    len(x) - permite calcular el tamaño de una lista
 #
 # Ahora, veamoslas en acción
-def ejemplo3():
-    nombres = ["María", "Juan","Andrés"]
-    nombres.append("Jorge")
-    print(nombres)
-    print(len(nombres))
+# def ejemplo3():
+#     nombres = ["María", "Juan","Andrés"]
+#     nombres.append("Jorge")
+#     print(nombres)
+#     print(len(nombres))
 
-    nombres.remove("Juan")
-    print(nombres)
-    print(len(nombres))
+#     nombres.remove("Juan")
+#     print(nombres)
+#     print(len(nombres))
 
-    nombres.pop(2)
-    print(nombres)
-    print(len(nombres))
+#     nombres.pop(2)
+#     print(nombres)
+#     print(len(nombres))
 #ejemplo3()
 
 #Actividad 1
@@ -53,6 +53,13 @@ def ejemplo3():
 # Usando el conocimiento de ciclos, crea una funcion numeros que tenga una lista con los numeros pares del 1 al 10 
 # y usa un ciclo para que los imprima
 
+# def numeros():
+#     print("imprimiendo pares")
+#     pares = [1,2,3,4,5,6,7,8,9,10]
+#     for i in range(1,len(pares)+1,2):
+#         print("par: ",pares[i])
+
+# numeros()
 #actividad1()
 
 #Actividad 2
@@ -64,3 +71,37 @@ def ejemplo3():
 #    primos(x) - Una función que imprima los números de la lista que son números primos
 
 #actividad2()
+
+import random
+
+lista = []
+
+def mayor():
+    mayor = lista[0]
+    for i in range(len(lista)):
+        if i < len(lista)-1:
+            a = lista[i+1]
+        else:
+            a = 0
+        if mayor <= a:
+            mayor = a
+    return mayor
+
+def primos():
+    primos = []
+    for i in range(len(lista)):
+        if lista[i] >= 2:
+            cont = 0
+            for j in range(2,len(lista)+1):
+                if lista[i]%j == 0 and lista[i] != j:
+                    cont += 1
+            if cont == 0:
+                primos.append(lista[i])
+    return primos
+
+for i in range(6):
+    lista.append(random.randint(1,20))
+
+print(lista)
+print("El mayor es: ", mayor())
+print("Los primos son: ", primos())
