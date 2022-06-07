@@ -76,18 +76,14 @@ import random
 
 lista = []
 
-def mayor():
-    mayor = lista[0]
+def mayor(lista):
+    may = lista[0]
     for i in range(len(lista)):
-        if i < len(lista)-1:
-            a = lista[i+1]
-        else:
-            a = 0
-        if mayor <= a:
-            mayor = a
-    return mayor
+        if may <= lista[i]:
+            may = lista[i]
+    return may
 
-def primos():
+def primos(lista):
     primos = []
     for i in range(len(lista)):
         if lista[i] >= 2:
@@ -99,9 +95,14 @@ def primos():
                 primos.append(lista[i])
     return primos
 
+def orden(lista):
+    lista.sort()
+    return lista
+
 for i in range(6):
     lista.append(random.randint(1,20))
 
 print(lista)
-print("El mayor es: ", mayor())
-print("Los primos son: ", primos())
+print("El mayor es: ", mayor(lista))
+print("Los primos son: ", primos(lista))
+print("La lista ordenada queda: ", orden(lista))
