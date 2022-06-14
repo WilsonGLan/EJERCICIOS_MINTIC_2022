@@ -14,7 +14,7 @@ Veamos un ejemplo:
 
 # ejemplo1("Esta es una prueba para pasar a una lista")
 
-#Actividad 1
+print("Actividad 1")
 #
 #Escribe una función actividad1(x, n) que reciba una frase x y un numero entero n 
 #e imprima una lista con las palabras cuya longitud sea mayor a n de entrada.
@@ -35,7 +35,7 @@ evaluar_frase(frase, numero)
 
 print(mayores)
 
-#Actividad 2
+print("Actividad 2")
 #
 #Creemos ahora una función crearMatriz(m,n) que genere una matriz de M * N con números aleatorios 
 #entre 0 y 9 y la retorne.
@@ -48,5 +48,59 @@ print(mayores)
 #al promedio en T y cero (0) donde el valor de la posición en T sea menor que el promedio.
 #
 #Imprimir ambas matrices.
+
+import random
+
+matrizA = []
+matrizB = []
+m = 3
+n = 2
+
+def crearMatriz(m,n):
+    for i in range(m):
+        filas = []
+        for j in range(n):
+            filas.append(random.randint(0,9))
+        matrizA.append(filas)
+    return matrizA
+
+
+def calcularPromedio(T):
+    dato = 0
+    cont =0
+    promedio = 0
+    for i in range(m):
+        fila = []
+        for j in range(n):
+            fila = T[i][j]
+            dato += fila
+            cont +=1
+    promedio = dato / cont
+    #print(round(promedio,2))
+    return round(promedio,2)
+
+def actividad2(m, n):
+    matriz =  crearMatriz(m,n)
+    # validaM = 0
+    resultado = []
+    validaM = calcularPromedio(matriz)
+    print("promedio: ",validaM)
+    print(f"matriz: {matriz}")
+    for i in range(m):
+        filas = []
+        elemento = 0
+        for j in range(n):
+            #print(matriz[i][j])
+            elemento = matriz[i][j]
+            if elemento >= validaM:
+                filas.append(1)
+            else:
+                filas.append(0)
+        resultado.append(filas)
+    print(resultado)
+    return resultado
+
+actividad2(m,n)
+
 
 #actividad2(3,3)
