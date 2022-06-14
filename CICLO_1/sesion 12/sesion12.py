@@ -8,23 +8,23 @@ Esta librería está por fuera del alcance de este curso pero puedes investigarl
 
 Veamos un ejemplo:
 """
-def ejemplo1():
-    a = [[1, 2, 3, 4, 5],
-     [6, 7, 8, 9, 0]]
-    print(a)
+# def ejemplo1():
+#     a = [[1, 2, 3, 4, 5],
+#      [6, 7, 8, 9, 0]]
+#     print(a)
 
-ejemplo1()
+# ejemplo1()
 
 #O podemos recorrer todos los elementos e imprimir como una matriz
-def ejemplo2():
-    a = [[1, 2, 3, 4, 5],
-     [6, 7, 8, 9, 0]]
-    for i in range(len(a)):
-        for j in range(len(a[i])):
-            print(a[i][j], end=' ')
-        print()
+# def ejemplo2():
+#     a = [[1, 2, 3, 4, 5],
+#      [6, 7, 8, 9, 0]]
+#     for i in range(len(a)):
+#         for j in range(len(a[i])):
+#             print(a[i][j], end=' ')
+#         print()
 
-ejemplo2()
+# ejemplo2()
 
 #Actividad 1
 #
@@ -32,6 +32,52 @@ ejemplo2()
 #aleatorios, imprima los valores máximo y mínimo y sus posiciones dentro de la matriz.
 
 #actividad1()
+
+from random import randint
+f = 5
+c = 10
+
+def llenarMatriz():
+    matriz = []
+
+    for i in range(f):
+        filas = []
+        for j in range(c):
+            filas.append(randint(1,100))
+        matriz.append(filas)
+    
+    return matriz
+
+
+def mayor(matriz):
+    mayor = matriz[0][0]
+    posicionf = posicionc = 0
+    for i in range(f):
+        for j in range(c):
+            if mayor <= matriz[i][j]:
+                mayor = matriz[i][j]
+                posicionf = i
+                posicionc = j
+    return mayor, posicionf, posicionc
+
+def menor(matriz):
+    menor = matriz[0][0]
+    posicionf = posicionc = 0
+    for i in range(f):
+        for j in range(c):
+            if menor >= matriz[i][j]:
+                menor = matriz[i][j]
+                posicionf = i
+                posicionc = j
+    return menor, posicionf, posicionc
+
+matrizR = llenarMatriz()
+print(matrizR)
+menorFinal, menorf, menorc = menor(matrizR)
+mayorFinal, mayorf, mayorc = mayor(matrizR)
+
+print(f"El mayor de la matriz es {mayorFinal} su posición corresponde en la fila {mayorf} y en la columna {mayorc}")
+print(f"El menor de la matriz es {menorFinal} su posición corresponde en la fila {menorf} y en la columna {menorc}")
 
 #Actividad 2
 #
