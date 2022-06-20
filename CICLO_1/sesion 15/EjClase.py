@@ -16,27 +16,28 @@ Modo    Descripción
 't'     Abrir en modo texto, este es el valor por defecto
 '+'     Abrir para lectura y escritura
 """
+ruta = "D:/00_CURSOS/MINTIC/PROGRAMACION_BASICA/EJERCICIOS_MINTIC_2022/CICLO_1/sesion 15/nuevo.txt"
 #   Archivo de texto llamado nuevo.txt con numeros
 #   Ahora vamos a leer la información del archivo usando la función read().
 #   read() Lee todo el archivo
-def ejemplo1():
-    try:
-        miarchivo=open("nuevo.txt","r")
-        linea=miarchivo.read()     
-        print("===================================")
-        print("      abrio bien ejemplo 1"         )
-        print(linea)
-        print("===================================")
-    except:
-        print("Archivo no encontrado")  
-ejemplo1()
+# def ejemplo1():
+#     try:
+#         miarchivo=open(ruta,"r")
+#         linea=miarchivo.read()
+#         print("===================================")
+#         print("      abrio bien ejemplo 1"         )
+#         print(linea)
+#         print("===================================")
+#     except:
+#         print("Archivo no encontrado")
+# ejemplo1()
 
 #   En el siguiente ejemplo, vamos a hacer que el programa
 #   lea una línea al tiempo es decir una a la vez.
 #   readline() Lee linea por linea
 # def ejemplo2():
 #     try:
-#         miArchivo = open('nuevo.txt', 'r')
+#         miArchivo = open(ruta, 'r')
 #         linea = miArchivo.readline()
 #         print("===================================")
 #         print("      abrio bien ejemplo 2"         )
@@ -48,7 +49,7 @@ ejemplo1()
 #         print("===================================")
 #     except IOError:
 #         print("Archivo no encontrado")
-#ejemplo2()
+# ejemplo2()
 
 #   En el siguiente ejemplo, vamos a hacer que el programa lea un archivo
 #   y cree una lista con todas las lineas
@@ -56,7 +57,7 @@ ejemplo1()
 
 # def ejemplo3():
 #     try:
-#         miArchivo = open('nuevo.txt', 'r')
+#         miArchivo = open(ruta, 'r')
 #         linea = miArchivo.readlines()
 #         print("===================================")
 #         print("      abrio bien ejemplo 3"         )
@@ -69,26 +70,27 @@ ejemplo1()
 
 #   En el siguiente ejemplo, vamos a hacer que el programa lea una línea al tiempo.
 #   y cree una matriz
-# def ejemplo4():
-#     try:
-#         matriz = []
-#         miArchivo = open('nuevo.txt', 'r')
-#         print("===================================")
-#         print("      abrio bien ejemplo 4"         )
-#         linea = miArchivo.readline()
-#         fila = linea.rstrip('\n').split(',')
-#         matriz.append(fila)
-#         while linea:
-#             linea = miArchivo.readline()
-#             if linea:
-#                 fila = linea.rstrip('\n').split(',')
-#                 matriz.append(fila)
-#         print(matriz)
-#         miArchivo.close()
-#         print("===================================")
-#     except IOError:
-#         print("Archivo no encontrado")
-# ejemplo4()
+def ejemplo4():
+    try:
+        matriz = []
+        miArchivo = open(ruta, 'r')
+        print("===================================")
+        print("      abrio bien ejemplo 4"         )
+        linea = miArchivo.readline()
+        fila = linea.rstrip('\n').split(',')
+        matriz.append(fila)
+        print(matriz)
+        while linea:
+            linea = miArchivo.readline()
+            if linea:
+                fila = linea.rstrip('\n').split(',')
+                matriz.append(fila)
+        print(matriz)
+        miArchivo.close()
+        print("===================================")
+    except IOError:
+        print("Archivo no encontrado")
+ejemplo4()
 
 #   abrir un archivo para escritura modo = w
 #   De sólo escritura (w). El archivo es truncado (vaciado) si existe, y si no se crea.
@@ -184,22 +186,22 @@ ejemplo1()
 #  writelines : metodo usado para escribir en un archivo tipos de datos secuenciales
 #  con el modo de apertuta = a . nos permite escribir y graba la informacion al final de la anterior
 #  este mantiene el archivo PERSISTENCIA EN EL TIEMPO
-def ejemplo10():
-    try:
-        with  open('ciudades.txt', 'a', encoding='utf-8') as miArchivo:
-            print("===================================")
-            print("      abrio bien ejemplo 10         ")
-            lista = []
-            while True:
-                ciudad = input("Digite el nombre de ciudad. Para terminar 0")
-                if ciudad != "0":
-                    lista.append(ciudad+'\n')
-                else:
-                    break
-            print(lista)
-            miArchivo.writelines(lista)
-            miArchivo.close()
-            print("===================================")
-    except IOError:
-        print('Archivo no encontrado')
-ejemplo10()
+# def ejemplo10():
+#     try:
+#         with  open('ciudades.txt', 'a', encoding='utf-8') as miArchivo:
+#             print("===================================")
+#             print("      abrio bien ejemplo 10         ")
+#             lista = []
+#             while True:
+#                 ciudad = input("Digite el nombre de ciudad. Para terminar 0")
+#                 if ciudad != "0":
+#                     lista.append(ciudad+'\n')
+#                 else:
+#                     break
+#             print(lista)
+#             miArchivo.writelines(lista)
+#             miArchivo.close()
+#             print("===================================")
+#     except IOError:
+#         print('Archivo no encontrado')
+# ejemplo10()
