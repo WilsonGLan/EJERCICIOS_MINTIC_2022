@@ -21,3 +21,7 @@ Backup of *.doc*
 
 # Visio autosave temporary files
 *.~vsd*
+
+# file plane
+*.csv
+*.txt
