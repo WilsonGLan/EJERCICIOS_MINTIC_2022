@@ -25,3 +25,8 @@ Backup of *.doc*
 # file plane
 *.csv
 *.txt
+
+# file zip
+*.zip
+*.rar
+*.7z
