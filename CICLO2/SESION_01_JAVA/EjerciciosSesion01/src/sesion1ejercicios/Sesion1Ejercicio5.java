@@ -1,6 +1,31 @@
 package sesion1ejercicios;
-
 import java.util.Scanner;
+
+/**
+ *
+ * @author Wilson Gutierrez
+ */
+
+/*
+Ejemplo 5: Estructura dependiendo de o Según
+
+Una determinada empresa ha decidido ofrecer descuentos a sus clientes de acuerdo al día de la semana 
+en el que se realice la compra, para lo cual se requiere un algoritmo que dado el día de la semana
+(en número), y el total a pagar sin descuento, calcule el total incluyendo el descuento. 
+
+El descuento se otorga de acuerdo a la siguiente tabla.
+
+Dia	Descuento
+1	5%
+2	3%
+3	10%
+4	4%
+5	6%
+6	2%
+7	1%
+
+*/
+
 public class Sesion1Ejercicio5 {
     public static void main(String[] args) {
         Scanner leer =new Scanner(System.in);
