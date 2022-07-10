@@ -30,3 +30,8 @@ Backup of *.doc*
 *.zip
 *.rar
 *.7z
+/CICLO2/SESION_01_JAVA/EjerciciosSesion01/nbproject/private/
+/CICLO2/SESION_01_JAVA/EjerciciosSesion01/build/
+
+# video
+*.mp4
