@@ -35,3 +35,6 @@ Backup of *.doc*
 
 # video
 *.mp4
+/CICLO2/SESION_01_JAVA/Sesion2Ejercicios/nbproject/private/
+/CICLO2/SESION_01_JAVA/Sesion2Ejercicios/build/
+/CICLO2/SESION_01_JAVA/Sesion2CP/nbproject/private/
