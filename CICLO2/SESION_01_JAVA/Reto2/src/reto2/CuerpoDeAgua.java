@@ -2,34 +2,69 @@
 package reto2;
 
 public class CuerpoDeAgua {
-    private String [] nombre;
-    private int  [] id;
-    private String  [] municipio;
-    private double  [] irca;
-    private int tamano;
+    private final String [] nombre;
+    private final int  [] id;    
+    private final double  [] irca;    
+    private String mensaje;     
 
-    public CuerpoDeAgua(String[] nombre, int[] id, String[] municipio, double[] irca, int tamano) {
+    public CuerpoDeAgua(String[] nombre, int[] id, double[] irca) {
         this.nombre = nombre;
-        this.id = id;
-        this.municipio = municipio;
-        this.irca = irca;
-        this.tamano = tamano;
+        this.id = id;        
+        this.irca = irca;        
+        this.mensaje = "";         
     }
 
-    public void nivel(int posicion){
+    public String nivel(int posicion){        
         if (irca[posicion ] > 80 && irca[posicion ] <= 100) {
-            System.out.println("INVIABLE SANITARIAMENTE");
+            this.mensaje = ("INVIABLE SANITARIAMENTE");
         }else if (irca[posicion ] > 35 && irca[posicion ] <= 80) {
-            System.out.println("ALTO");
+            this.mensaje = ("ALTO");
         }else if (irca[posicion ] > 14 && irca[posicion ] <= 35) {
-            System.out.println("MEDIO");
+            this.mensaje = ("MEDIO");
         }else if (irca[posicion ] > 5 && irca[posicion ] <= 14) {
-            System.out.println("BAJO");
+           this. mensaje = ("BAJO");
         }else if (irca[posicion ] >=0 && irca[posicion ] <=5) {
-            System.out.println("SIN RIESGO");
+            this.mensaje = ("SIN RIESGO");
         }else {
+            this.mensaje = ("NA");
+        }
+        return this.mensaje;
+    }
+    
+    public int cantMBSR(){
+        int contar = 0;
+        for (int i = 0; i < this.irca.length; i++) {
+            if (this.irca[i] >= 0  && this.irca[i] <= 35 ) {
+                contar += 1;
+            }
+        }
+        return contar;
+    }
+
+    public void nombreMedio(){
+        int contar = 0;
+        for (int i = 0; i < this.irca.length; i++) {
+            if (this.irca[i] > 14 && this.irca[i]  <= 35) {
+                System.out.println(this.nombre[i]);
+                contar += 1;            
+                }               
+        }        
+        if (contar == 0){
             System.out.println("NA");
         }
+        }  
+    
+    public void clasificaBaja(){
+        double menor = irca[0];
+        int buscarIndice = 0;
+        for (int i = 1; i < this.irca.length; i++) {
+            if ( irca[i] <= menor) {
+                menor = irca[i];
+                buscarIndice = i;
+            }
+        }
+        System.out.println(this.nombre[buscarIndice]+" "+this.id[buscarIndice]);
     }
+
     
 }
