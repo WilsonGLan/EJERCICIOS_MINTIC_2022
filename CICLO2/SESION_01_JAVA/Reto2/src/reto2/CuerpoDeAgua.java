@@ -43,14 +43,21 @@ public class CuerpoDeAgua {
 
     public void nombreMedio(){
         int contar = 0;
+        String municipios="";        
         for (int i = 0; i < this.irca.length; i++) {
-            if (this.irca[i] > 14 && this.irca[i]  <= 35) {
-                System.out.println(this.nombre[i]);
+            if (this.irca[i] > 14 && this.irca[i]  <= 35) {                
+                if (municipios == "") {
+                    municipios = this.nombre[i]+ " ";
+                } else {
+                    municipios +=  this.nombre[i];
+                }
                 contar += 1;            
                 }               
-        }        
+        }         
         if (contar == 0){
             System.out.println("NA");
+        }else{
+            System.out.println(municipios);
         }
         }  
     
