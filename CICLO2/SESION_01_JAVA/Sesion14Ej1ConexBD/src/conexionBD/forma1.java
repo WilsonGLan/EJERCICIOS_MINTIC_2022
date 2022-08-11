@@ -1,6 +1,8 @@
 package conexionBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 /**
  * @author Wilson Gutierrez
@@ -56,6 +58,20 @@ public class forma1 extends javax.swing.JFrame {
         try {
                 String url="jdbc:sqlite:C:/SQLiteStudio/bd/Empresa.db";
                 Connection conexion = DriverManager.getConnection(url);
+                
+                //Preparar la consulta y ejecutarla
+                Statement stm= conexion.createStatement();
+                ResultSet rst= stm.executeQuery("Select * from PERSONAS");
+                
+                //Recorrer los resultados
+                
+                while (rst.next()) {                
+                    System.out.println(rst.getInt(1) + " " + rst.getString(2) + " " + rst.getString(3) + " " + rst.getString(4) + " " + rst.getString(5) );      
+                    //System.out.println( rst.getString(1) );   
+            }
+                rst.close();
+                stm.close();
+                conexion.close();
                 
                 if (conexion != null) {
                     JOptionPane.showMessageDialog(null, "Conectados");
